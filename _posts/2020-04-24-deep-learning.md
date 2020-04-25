@@ -1,9 +1,9 @@
 ---
 title: Writing a New Post
 author: Cotes Chung
-date: 2019-08-08 14:10:00 +0800
+date: 2020-04-24 14:10:00 +0800
 categories: [Blogging, Deeplearning]
-tags: [writing]
+tags: [Deeplearning]
 ---
 
 ## Naming and Path
@@ -11,6 +11,9 @@ tags: [writing]
 Create a new file named with the format `YYYY-MM-DD-title.md` then put it into `_post` of the root directory.
 
 ## Front Matter
+<iframe src="/pdf/Docker_huong_dan.pdf" width="100%" height="800rem">
+This browser does not support PDFs. Please download the PDF to view it: <a href="/pdf/Docker_huong_dan.pdf">Download PDF</a>
+</iframe>
 
 Basically, you need to fill the [Front Matter](https://jekyllrb.com/docs/front-matter/) as below at the top of the post:
 
