@@ -78,7 +78,7 @@ print("sess.run(node3): ", sess.run(node3)) # in thông tin của session run
 import tensorflow as tf
 
 num_1 = tf.placeholder(tf.int32)
-num_2 = tf.placeholder(tf.int32)s
+num_2 = tf.placeholder(tf.int32)
 sumTwoNums = tf.add(num_1,num_2)
 
 num1 = 1
