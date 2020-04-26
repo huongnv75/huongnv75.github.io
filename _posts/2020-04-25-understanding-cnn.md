@@ -6,7 +6,6 @@ categories: [Blogging, Computer Vision]
 tags: [computer vision]
 ---
 
-## Giới thiệu
 Trong neural networks, mạng Convolutional neural network (ConvNets or CNNs) là một trong những mạng chính để thực thi các bài toán nhận dạng, phân loại ảnh. Phát hiện đối tượng, nhận dạng khuôn mặt,... là một số lĩnh vực tiêu biểu mà CNNs sử dụng rộng rãi.
 
 Phân loại hình ảnh trong CNNs bao gồm các bước lấy một hình ảnh làm đầu vào, xử lý và phân loại nó theo các danh mục nhất định cho trước (ví dụ: chó, mèo, lợn, gà ...).  Máy tính hiểu một ảnh là mảng các pixels và mảng đó phụ thuộc vào độ phân giải ảnh (resolution). Dựa vào độ phân giải ảnh, thì nó sẽ được xác định bởi ba tham số `h x w x d` (`h`là chiều cao (height), `w` là chiều rộng (width), `d` là kích thước (dimension)). Ví dụ: Một ảnh `6 x 6 x 3` (3 đại diện các giá trị RGB (ảnh màu)), một ảnh kích thước `4 x 4 x 1` (1 đại diện cho ảnh grayscale(đen trắng)).
@@ -17,7 +16,8 @@ Về mặt kĩ thuật, các mô hình CNN (model) trong deep learning sẽ đư
 
 ![upload-image]({{ "/assets/img/post/2020-04-25-cnn.jpg" | relative_url }})
 
-## Convolution Layer
+Ta bắt đầu đi tìm hiểu một số khái niệm cơ bản trong CNNs.
+## 1. Convolution Layer
 Convolution là layer đầu tiền dùng để trích xuất các tính năng từ một ảnh đầu vào. Về mặt toán học, đầu ra của layer này phụ thuộc vào hai đầu vào đó là: ma trận ảnh đầu vào và bộ lọc (kernel).
 
 ![upload-image]({{ "/assets/img/post/2020-04-25-mul.png" | relative_url }})
@@ -34,7 +34,7 @@ Convolution của một ảnh khi kết hợp với bộ lọc khác nhau có th
 
 ![upload-image]({{ "/assets/img/post/2020-04-25-conv-example.png" | relative_url }})
 
-## Padding
+## 2. Padding
 Nếu chỉ dùng tích convolution như trên thì kết quả đầu ra luôn có kích thước giảm đi.
 Kĩ thuật padding nhằm mục đích tăng kích thước ảnh sau bộ lọc bằng cách thêm viền cho ma trận bằng `k` hàng hoặc cột các phần tử 0 rồi thực hiện convolution. Ví dụ stride 1, padding 1 cho ma trận `5 x 5` sau: 
 
@@ -42,20 +42,21 @@ Kĩ thuật padding nhằm mục đích tăng kích thước ảnh sau bộ lọ
 
 > **Note**:  Nếu không nói gì đến strides thì mặc định nó có stride bằng 1 (tức là đi lần lượt qua tất cả các ô trong bảng).
 
-## Strides
+## 3. Strides
 Kĩ thuật strides nhằm mục đích giảm kích thước ảnh bằng cách nhảy qua `k` bước nào đó rồi thực hiện convolution cho nó. Ví dụ stride 2, padding 1 cho ma trận `5 x 5` sau: 
 
 ![upload-image]({{ "/assets/img/post/2020-04-25-stride-2-padding-1.png" | relative_url }})
 
-## Non Linearity (ReLU)
+## 4. Non Linearity (ReLU)
 ReLU là hàm phi tuyến tính (tên gọi: Rectified Linear Unit), và nó có giá trị bằng: `f(x) = max(0,x)`.
 Hàm ReLU quan trọng là ví nó thể hiện được tính phi tuyến trong ConvNet và đồng thời, trong thế giới thực tế, thì chúng ta mong muốn chỉ học những giá trị tuyến tính không âm.
 
 ![upload-image]({{ "/assets/img/post/2020-04-25-ReLU.png" | relative_url }})
 
 Có một số hàm như hàm `tanh`, `sigmoid` có thể thay thế hàm ReLU. Hầu hết, các nghiên cứu thường sử dụng hàm ReLU vì performance của nó tốt hơn hai loại kia.
-## Pooling Layer
+## 5. Pooling Layer
 Pooling layers làm giảm số lượng tham số khi hình ảnh quá lớn nhưng vẫn giữ được những đặc trưng của ảnh. Thông thường, spatial pooling layer có các loại sau:
+
 * Max Pooling
 * Average Pooling
 * Sum Pooling
@@ -64,7 +65,7 @@ Max pooling lấy phần tử lớn nhất của feature map. Average pooling th
 
 ![upload-image]({{ "/assets/img/post/2020-04-25-max-pooling.png" | relative_url }})
 
-## Fully Connected Layer
+## 6. Fully Connected Layer
 Layer được gọi là FC layer, mục đích là làm phẳng ma trận, đưa vector qua một lớp neural network đây đủ.
 
 ![upload-image]({{ "/assets/img/post/2020-04-25-full.png" | relative_url }})

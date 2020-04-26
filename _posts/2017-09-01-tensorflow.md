@@ -6,13 +6,12 @@ categories: [Blogging, Tensorflow Tutorial]
 tags: [Tensorflow]
 ---
 
-## 1. Giới thiệu
 Xin chào các bạn. Những chuỗi ngày tiếp theo, mình sẽ giới thiệu các bạn về một open source đang khá `hot` hiện nay. Đó chính là ông Tensorflow này. Nói qua một chút thì Tensorflow là open source được sinh ra từ ông chủ lớn google từ cuối năm 2015, nó là một framework, cung cấp các thư viện phục vụ cho việc tính toán, hình thành các mô hình cũng như việc training cho các bài toán về machine learning, deep learning. Trước khi đi vào bài, chúng ta bắt đầu làm quen với những khái niệm hơi khó hiểu của Tensorflow, mình dùng văn viết để các bạn dễ hiểu nhé.
 
-## 2. Các khái niệm cơ bản
-### 2.1. Node
+## 1. Các khái niệm cơ bản
+### 1.1. Node
 Tại sao lại là node? Node là gì? Để trả lời được các câu hỏi này thì bạn cần biết rằng là Tensorflow hoạt động theo kiểu dòng chảy của dữ liệu. Do đó, node chính là điểm giao cắt trong graph đó. Tại sao điều này quan trọng, vì node chính là đại diện cho việc thay đổi của dữ liệu, nên việc lưu trữ lại tham chiếu của các Node này là rất quan trọng.
-### 2.2. Tensor
+### 1.2. Tensor
 Vậy sau khi có graph như trên, tức là có dòng chảy, vậy thì dòng chảy đó chảy cái gì? Trong Tensorflow, mọi kiểu dữ liệu đều được quy về một đối tượng, đối tượng đó được gọi là Tensor. Tensor là một kiểu dữ liệu dạng mảng có nhiều chiều, đồng thời mảng nhiều chiều này được đính kèm thêm một vài thuộc tính tham số cần thiết. Các thuộc tính đó được mô tả như sau:
 
 * **device**: Tên của thiết bị mà Tensor hiện tại sẽ được xuất bản. Có thể là None.
@@ -22,7 +21,7 @@ Vậy sau khi có graph như trên, tức là có dòng chảy, vậy thì dòng
 * **op**: Toán tử được sử dụng để xuất bản Tensor hiện tại.
 * **dtype**: Kiểu của các phần tử trong Tensor hiện tại.
 
-### 2.3. Rank
+### 1.3. Rank
 Rank là bậc hay độ sâu của một Tensor. Ví dụ như `Tensor = [2017]` sẽ có rank là 1, `Tensor = [[[1,1,1],[0,2,4]]]` sẽ có rank bằng 3, `Tensor = [[2,1,1],[8,-3,4]]` sẽ có rank bằng 2.  Việc phân rank này khá quan trọng vì nó đồng thời cũng giúp phân loại dữ liệu của Tensor. Khi ở cách rank đặc biệt cụ thể, Tensor có những tên riêng như sau:
 
 * **Scalar**: Khi Tensor có rank bằng 0, Tensor đại diện cho một số hoặc một chuỗi cụ thể. Ví dụ: `scalar=2017`.
@@ -32,7 +31,7 @@ Rank là bậc hay độ sâu của một Tensor. Ví dụ như `Tensor = [2017]
 
 > **Lưu ý**: Khái niệm về chiều trong Tensorflow và Python có sự sai khác lẫn nhau. Chiều trong python chính là bậc trong Tensorflow. Chiều trong Tensorflow là số lượng elements có trong bậc cuối cùng của Tensor tương ứng. Ví dụ `Tensor = [[[1,1,1],[2,3,4]]]` có chiều bằng 3, `Tensor = [[1,1,1],[2,3,4]]` vẫn có chiều bằng 3.
 
-### 2.4. Shape
+### 1.4. Shape
 Shape là một tuple trong python có số chiều bằng với rank của Tensor tương ứng, dùng để mô tả lại cấu trúc của Tensor đó. Ví dụ:
 
 * `Tensor = 1` sẽ có `Shape = ()`.
@@ -40,13 +39,13 @@ Shape là một tuple trong python có số chiều bằng với rank của Tens
 * `Tensor = [[[1,1,1],[0,2,4]]]` sẽ có `Shape = (1,1,3)`.
 * `Tensor = [[1,1,1],[0,2,4]]` sẽ có `Shape = (1,3)`.
 
-### 2.5. Op
+### 1.5. Op
 Operator được viết tắt là op, là toán tử được dùng để thực thi Tensor tại node đó. Các toán tử này có thể là Const (Hằng số), Variable (Biến số), Add (Phép cộng), Mul (Phép nhân)... 
 
-### 2.6. DType
+### 1.6. DType
 Đây là kiểu dữ liệu của các elements trong Tensor. Mỗi Tensor chỉ có duy nhất một thuộc tính DType nên tất cả các elements của tensor sẽ cùng kiểu dữ liệu.
 
-## 3. Chương trình Hello World đầu tiên
+## 2. Chương trình Hello World đầu tiên
 Nào, bắt đầu code chương trình đầu tiên.
 ```python
 import tensorflow as ts
@@ -61,7 +60,7 @@ Lý giải:
 * Dòng 3: Tạo một Session? Session được hiểu đơn giản là phiên làm việc, phải có session thì mới có thể thực thi operation của các node.
 * Dòng 4: Session chạy thông qua phương thức run. Do đó, lệnh này để in ra kết quả của việc session run.
 
-## 4. Xây dựng một graph đơn giản
+## 3. Xây dựng một graph đơn giản
 Các bạn thử chạy chương trình sau và tự xem kết quả của mình để hiểu hơn nhé.
 ```python
 import tensorflow as ts # import thư viện quen thuộc
@@ -74,7 +73,7 @@ sess = tf.Session() # tạo session
 print("sess.run ([node1, node2]): ", sess.run ([node1, node2])) # in thông tin của session run
 print("sess.run(node3): ", sess.run(node3)) # in thông tin của session run
 ```
-## 5. Ứng dụng vào một bài toán tính tổng
+## 4. Ứng dụng vào một bài toán tính tổng
 ```python
 import tensorflow as tf
 
