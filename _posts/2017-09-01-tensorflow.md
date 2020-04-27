@@ -3,7 +3,7 @@ title: Giới thiệu về Tensorflow
 author: huongnv75
 date: 2017-09-01 12:00:00 +0700
 categories: [Blogging, Tensorflow Tutorial]
-tags: [Tensorflow]
+tags: [tensorflow]
 ---
 
 Xin chào các bạn. Những chuỗi ngày tiếp theo, mình sẽ giới thiệu các bạn về một open source đang khá `hot` hiện nay. Đó chính là ông Tensorflow này. Nói qua một chút thì Tensorflow là open source được sinh ra từ ông chủ lớn google từ cuối năm 2015, nó là một framework, cung cấp các thư viện phục vụ cho việc tính toán, hình thành các mô hình cũng như việc training cho các bài toán về machine learning, deep learning. Trước khi đi vào bài, chúng ta bắt đầu làm quen với những khái niệm hơi khó hiểu của Tensorflow, mình dùng văn viết để các bạn dễ hiểu nhé.
@@ -48,17 +48,18 @@ Operator được viết tắt là op, là toán tử được dùng để thự
 ## 2. Chương trình Hello World đầu tiên
 Nào, bắt đầu code chương trình đầu tiên.
 ```python
-import tensorflow as ts
+import tensorflow as tf
 hello = tf.constant('Hello World!')
 sess = tf.Session()
 print(sess.run (hello))
 ```
 Kết quả trả về: `'Hello World!'`
+
 Lý giải:
-* Dòng 1: Import thư viện tensorflow vì trong python không có sẵn thư viện này.
-* Dòng 2: Tạo một Node, Node này có tên là hello, Operator là constant, DType là tf.string, Shape là (). Để kiểm tra thông tin của nó, bạn có thể thêm dòng hello để biết thông tin của biến này.
-* Dòng 3: Tạo một Session? Session được hiểu đơn giản là phiên làm việc, phải có session thì mới có thể thực thi operation của các node.
-* Dòng 4: Session chạy thông qua phương thức run. Do đó, lệnh này để in ra kết quả của việc session run.
+- Dòng 1: Import thư viện tensorflow vì trong python không có sẵn thư viện này.
+- Dòng 2: Tạo một Node, Node này có tên là hello, Operator là constant, DType là tf.string, Shape là (). Để kiểm tra thông tin của nó, bạn có thể thêm dòng hello để biết thông tin của biến này.
+- Dòng 3: Tạo một Session? Session được hiểu đơn giản là phiên làm việc, phải có session thì mới có thể thực thi operation của các node.
+- Dòng 4: Session chạy thông qua phương thức run. Do đó, lệnh này để in ra kết quả của việc session run.
 
 ## 3. Xây dựng một graph đơn giản
 Các bạn thử chạy chương trình sau và tự xem kết quả của mình để hiểu hơn nhé.
