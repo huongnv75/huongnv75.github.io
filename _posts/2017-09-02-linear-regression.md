@@ -14,6 +14,7 @@ $${y=\color{Red}f(x)}$$
 * Khi đó,hàm $$\color{Red}f$$ trên chưa biết nhưng ta biết được chính xác đầu vào $$x$$ và đầu ra $$y$$ của bài toán ta đang thực hiện.
 * **Bước 2**: Thu thập dữ liệu. Ở bước này, mục tiêu là ta đo được càng nhiều giá trị càng tốt. Tức là cứ ứng với mỗi $$x_{i}$$ ta thu được giá trị $$y_{i}$$ tương ứng. Giả sử rằng, ở bước này ta thu thập được $$m$$ cặp dữ liệu.
 
+{:class="table table-bordered"}
 |STT | $$x$$ | $$y$$  |
 |-------|--------|---------|
 | $$1$$ | $$x_{1}$$ | $$y_{1}$$ |
@@ -38,7 +39,7 @@ $$y_{k}=H(x_{k})$$
 * Trong phạm vi bài viết này, mình sẽ implement thuật toán trên một cách đơn giản nhất mà chưa đào sâu cách tìm $$W$$ và $$b$$ cho bài toán.
 
 ## 2. Lập trình
-### Dựng hàm Hypothesis
+### 2.1. Dựng hàm Hypothesis
 ```python
 # X and Y data
 x_train = [1, 2, 3]
@@ -49,18 +50,18 @@ b = tf.Variable(tf.random_normal([1]), name='bias')
 # Our hypothesis XW+b
 hypothesis = x_train * W + b
 ```
-### Dựng hàm Cost
+### 2.2. Dựng hàm Cost
 ```python
 # cost/loss function
 cost = tf.reduce_mean(tf.square(hypothesis - y_train))
 ```
-### Dựng thuật toán tìm min
+### 2.3. Dựng thuật toán tìm min
 ```python
 # Minimize
 optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.01)
 train = optimizer.minimize(cost)
 ```
-### Cho session run
+### 2.4. Cho session run
 ```python
 # Launch the graph in a session.
 sess = tf.Session()
