@@ -24,11 +24,11 @@ $${y=\color{Red}f(x)}$$
 | $$m$$ | $$x_{m}$$ | $$y_{m}$$ |
 
 
-* **Bước 3**: Nhiệm vụ của chúng ta là giờ có một giá trị $$x_{k}$$ nào đó, mà ta muốn tìm ra giá trị $$y_{k}$$ tương ứng. Ở đây, giải thuật sẽ tìm ra một hàm $$H(x)$$ (H là viết tắt của Hypothesis) theo dạng sau:
+* **Bước 3**: Nhiệm vụ của chúng ta là giờ có một giá trị $$x_{k}$$ nào đó, mà ta muốn tìm ra giá trị $$y_{k}$$ tương ứng. Ở đây, giải thuật sẽ tìm ra một hàm $$H(x)$$ ($$H$$ là viết tắt của Hypothesis) theo dạng sau:
 
 $$H(x)=Wx+b$$
 
-* Đồng thời sẽ xác định thêm hàm mất mát phụ thuộc vào hai tham số $$W$$ (W là viết tắt của Weight) và $$b$$ (b là viết tắt của bias) như sau:
+* Đồng thời sẽ xác định thêm hàm mất mát phụ thuộc vào hai tham số $$W$$ ($$W$$ là viết tắt của Weight) và $$b$$ ($$b$$ là viết tắt của bias) như sau:
 
 $$cost(W,b)=\frac{1}{m}\sum_{i=1}^{m}(H(x_{i})-y_{i})^2$$
 
